@@ -1,0 +1,231 @@
+/* Assignment 2A: Practical exercise set 1 */
+/* Student name: Aymon Husari */
+/* Student number: 16801325  */
+/* Assignment due date: March 20, 2023 */
+
+/* this is a css file for 4.5 Activity: Module 4 practical exercise */
+
+/* this section the box sizing and max width for all elements on the page */
+* {
+	box-sizing: border-box; /* includes padding and border */
+	max-width: 900px; /* set the maximum width of 900 for all elements on the page */
+}
+
+/* this section styles the container that holds the top and bottom boxes on the page */
+.container {
+	display: block; 
+	background-color: #9999e6;
+	border-radius: 10px;
+	overflow: hidden; 
+	max-width: 900px;
+	margin: 0; 
+}
+
+/* this section styles the top box */
+.top-box {
+	flex: 1; /* set the flex property to 1 to make the boxes equal */
+	margin: 5px;
+	padding: 5px; 
+	border: solid 2px; 
+	border-radius: 5px; 
+	background-color: #e6e6fa; 
+	max-width: 900px; 
+}
+
+/* this section styles the bottom box */
+.bottom-box {	
+	flex: 1; 
+	margin: 5px; 
+	padding: 5px; 
+	padding-left: 15px;
+	border: solid 2px; 
+	border-radius: 5px; 
+	background-color: #e6e6fa; 
+	max-width: 900px; 
+}
+
+/* this section styles the body of the page */
+body {
+	background-color: #b0c4de; 
+	align-items: center; 
+	justify-content: center;
+	font-family: 'Josefin Slab', serif; 
+	font-family: 'Nunito', sans-serif; 
+	max-width: 900px;
+}
+
+/* this section styles the title */
+title {
+	text-align: center; /* center the text */
+}
+
+/* this section styles h1 headings */
+h1 {
+	background-color: #ff5c33;
+	font-weight: bolder; 
+}
+
+/* this section styles h1 and h2 headings  */
+h1, h2 {
+	text-align: center; /* center the text */
+	font-family: inherit; /* inherit the font family from the parent element */
+	background-color: #20b2aa; 
+	border-radius: 8px; 
+}
+
+/* this section styles the fieldset */
+fieldset {
+	background-color: #C0C0C0; 
+	display: block; 
+	margin: 25px; 
+	padding: 20px;
+	border-radius: 4px;
+}
+
+/* this section styles the legeng */
+legend {
+	color: black; 
+	background-color: #ffdab9; 
+	border-radius: 6px; 
+	border-style: solid; 
+	margin: 2px; 
+	font-weight: bold; 
+	padding: 10px; 
+}
+
+/* this section styles the label element */
+label {
+	padding-top: 5px; 
+	padding-bottom: 5px; 
+	margin-right: 5px;
+	width: 150px; 
+	display: inline-block; 
+	padding: 2px; /* add 2px all around padding */
+	font-family: inherit;
+}
+
+/* this section styles the input element */
+input {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-right: 5px;
+	width: 150px;
+	position: relative;
+	border: 2px solid #9933ff;
+	border-radius: 8px;
+	display: inline-block;
+	padding: 5px;
+	font-size: 0.9em;
+	font-family: inherit;
+}
+
+/* this section styles the table data element */
+td {
+	text-align: center;
+	padding: 5px;
+}
+
+/* this section styles the table, th and td elements */
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 100%; 
+}
+
+/* this section styles the table element */
+table {
+	display: block;
+	width: 100%;
+}
+
+/* this styles the class solid of the h1 element */
+h1.solid{
+	border-style: solid;
+	border-radius: 4px;
+	background-color: #20b2aa;
+}
+
+/* this section styles the class outsetborder for the h2 element */
+h2.outsetborder {
+	border-style: outset;
+	border-radius: 8px;
+	background-color: #ffdab9;
+}
+
+/* this section styles the product-details class of the h2 element */
+h2.product-details {
+	text-align: center;
+}
+
+/* this section styles the submit class of the input element */
+input.submit {
+	font-size: 1.5em;
+	font-family: inherit;
+	background-color: #ff5c33;
+	padding: 10px;
+	width: 20%;
+	margin-bottom: 30px;
+}
+
+/* this styles the submit class of the div element */
+div.submit {
+	text-align: center;
+	float: none;
+}
+
+/* this styles the class of error-message */
+.error-message {
+	color: red;
+	font-size: 0.85em;
+	margin-left: 5px;
+	display: inline-block;
+	position: inherit;
+	font-weight: bolder;
+}
+
+input.error-border {
+	border: 2px solid red;
+}
+
+.asterisk::after {
+	content: "* ";
+	color: red;
+	font-size: 1em;
+
+}
+/* this media query targets devices with a maximum width of 600px  */
+@media (max-width: 600px) {
+	.container {
+		flex-direction: row /* change the direction of the flexbox to row */
+	}
+
+	/* the following section of code was modified from 
+	https://www.youtube.com/watch?v=YGTNhLsF-_Q */
+
+	.no-more-table tbody, .no-more-table tr, .no-more-table td {
+		display: block; /* change the display property of tbody, tr and td to block display */
+	}
+
+	.no-more-table thead tr {
+		position: absolute; /* change the position of thead and tr to absolute */
+		top: -9999px; /* move the thead and tr row off the screen */
+		left: -9999px; /* move the thead and tr row off the screen */
+	}
+
+	.no-more-table td {
+		position: relative; /* change the position of td to relative */
+		padding-left: 50%; /* add padding to the left to create a two column layout */
+		border: none; /* remove the border from td */
+		margin-bottom: 2px; /* add a bottom margin */
+	}
+
+	.no-more-table td:before {
+		content: attr(data-title); /* change the content to the value of the td attribute */
+		position: absolute; /* change the position to absolute */
+		left: 5px; /* add left padding */
+		font-weight: bold; /* change the font weight */
+	}
+
+	/* end of code segment from 
+	https://www.youtube.com/watch?v=YGTNhLsF-_Q */
+}

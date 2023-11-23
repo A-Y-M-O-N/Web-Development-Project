@@ -1,0 +1,358 @@
+<!-- Assignment 2A: Practical exercise set 1 -->
+<!-- Student name: Aymon Husari -->
+<!-- Student number: 16801325  -->
+<!-- Assignment due date: March 20, 2023 -->
+
+<!-- this is a html document producing a form with input devices to make a sales quote-->
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+
+	<!-- links to external css file -->
+	<link rel="stylesheet" type="text/css" href="quoteFORM.css">
+
+	<!-- links to external Goodle fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Nunito:wght@300&display=swap" rel="stylesheet">
+
+	<!-- links to external javascript file -->
+	<script defer src="quoteValidation.js"></script>
+	
+	<!-- title of the page -->
+	<title>Totally Wonder Awnings accounts</title>
+</head>
+
+<!-- body of the page content -->
+<body>
+
+	<!-- main heading of the page -->
+	<h1 class="solid">Totally Wonder Awnings</h1>
+	
+
+	<!-- subheading of the page -->
+	<h2 class="outsetborder">Sales Quote</h2><br>
+		<p style="font-size: 1em; text-align: center; font-weight: bolder; border-bottom: 2px solid; border-color: red; border-radius: 4px;"> Please fill in the below quote, entry fields that are marked by (*) are required</p><br>
+
+	<!-- quote form input for the page -->
+	<form action="https://twatr1.cdms.westernsydney.edu.au/twainfo/form.asp" method="post" name="form" id="form" onsubmit="return submitError()" novalidate>
+
+		<!-- label and input details for the quote date -->
+		<label for="date" style="font-weight: bolder">Quote Date</label><br>
+		<input type="date" id="date" name="date" value="2023-01-01" min="2023-03-20" max="2023-12-31">
+		<br><br>
+
+		<!-- label and input for staff name of the quote -->
+		<label for="fname" style="font-weight: bolder">Quoted By</label><br>
+		<input type="text" id="fname" name="fname" placeholder="Staff Name" minlength="2" maxlength="10">
+		<br><br>
+
+		<!-- label and input for staff number of the quote -->
+		<label for="staffnumber" class="asterisk" style="font-weight: bolder">Staff Number</label><br>
+		<input type="text" id="staffnumber" name="staffnumber" placeholder="abc1234" onblur="staffNumberValidation()">
+		<span id="errorID1" class="error-message error-border"></span>
+		<br>
+		<br>
+
+	<!-- div container for customer details -->	
+	<div class="container">
+
+		<!-- div container for the top box of the page -->
+		<div class="top-box">
+
+			<!-- subheading for the page -->
+			<h2>Customer Details</h2>
+
+				<!-- fieldset for the customer's details -->
+				<fieldset id="customer-details">
+
+					<!-- legend mark to be placed on top of the fieldset -->
+					<legend>Personal Details</legend>
+
+						<!-- label and dropdown box for customer's title -->
+						<label for="title">Choose a Title</label><br>
+							<select id="title" name="title">
+								<option value="Mr">Dr</option>
+								<option value="Ms">Mx</option>
+								<option value="Mx">Ms</option>
+								<option value="Mrs">Miss</option>
+								<option value="Miss">Mrs</option>
+								<option value="Dr">Mr</option>
+								<option value="Dr">Rev</option>
+								<option value="Dr">Hon</option>
+							</select><br><br>
+
+						<!-- div container for first name -->	
+						<div id="customerForm">
+
+							<!-- label and input for customer's first name -->	
+							<label for="custfname" class="asterisk">First Name</label> 
+							<br> 
+							<input type="text" id="custfname" name="custfname" placeholder="First Name" minlength="2" maxlength="15" onblur="customerFNameValidation()">
+							<span id="errorID2" class="error-message error-border"></span><br><br>
+						</div>
+
+						<!-- div container for last name -->
+						<div id="customerForm1">
+
+							<!-- label and input for customer's last name -->	
+							<label for="custlname" class="asterisk">Last Name</label><br>
+							<input type="text" id="custlname" name="custlname" placeholder="Last Name" required minlength="2" maxlength="15" onblur="customerLNameValidation()">
+							<span id="errorID3" class="error-message error-border"></span>
+						</div>
+				</fieldset>		
+				<br>
+
+				<!-- fieldset for the address details of the customer -->
+				<fieldset id="address-details">
+
+					<!-- legend mark to be placed on top of the fieldset -->
+					<legend>Address Details</legend>
+						
+						<!-- div container for street 1 address -->
+						<div id="st1form">
+
+							<!-- label and input for street 1 address -->	
+							<label for="st1address" class="asterisk">Street Address</label><br>
+							<input class="form-error" id="st1address" type="text" name="staddress" maxlength="25" placeholder="Address Line 1" onblur="customerst1Validation()">
+							<span id="errorID4" class="error-message error-border"></span>
+						</div>
+
+						<!-- div container for street 2 address -->
+						<div id="st2form">
+
+							<!-- label and input for street 2 address-->
+							<label for="st2address"></label><br>
+							<input id="st2address" type="text" name="staddress" maxlength="25" placeholder="Address Line 2" onblur="customerst2Validation()">
+							<span id="errorID5" class="error-message error-border"></span><br>
+						</div>
+						<br>
+
+						<!-- div container for suburb -->
+						<div id="suburbForm">
+
+							<!-- label and input for suburb -->
+							<label for="suburb" class="asterisk">Suburb</label> 		
+							<br>	
+							<input type="text" id="suburb" name="suburb" placeholder="Suburb" maxlength="15" onblur="suburbValidation()">
+							<span id="errorID6" class="error-message error-border"></span>
+						</div><br>
+
+						<!-- div container for postcode -->
+						<div id="postcodeForm">
+							<label for="postcode" class="asterisk">Postcode</label><br>
+							<input type="text" id="postcode" name="postcode" placeholder="postcode" maxlength="4" onblur="postcodeValidation()">
+							<span id="errorID7" class="error-message error-border"></span>
+						</div>
+				</fieldset>
+				<br>
+
+				<!-- fieldset for contact details -->			
+				<fieldset id="contact-details">
+
+					<!-- legend mark to be placed on top of the fieldset -->
+					<legend>Contact Details</legend>
+						
+						<!-- div container for phone number -->
+						<div id="pnForm">
+
+							<!-- label and input for phone number -->
+							<label for="phonenumber" class="asterisk">Phone Number</label><br>
+							<input id="phonenumber" type="tel" name="phonenumber" placeholder="Phone number" maxlength="10" onblur="phoneValidation()">
+							<span id="errorID8" class="error-message error-border"></span>
+						</div><br>
+
+						<!-- div container for email -->
+						<div id="emailForm">
+
+							<!-- label and input for email -->
+							<label for="email" class="asterisk">Email</label><br>
+							<input id="email" type="text" name="email" placeholder="email" onblur="emailValidation()">
+						<span id="errorID9" class="error-message error-border"></span>
+						</div>
+				</fieldset>
+		</div>
+
+		<!-- the following section of code was modified from 
+		https://www.youtube.com/watch?v=YGTNhLsF-_Q -->
+
+		<!-- div container for the bottom box of the page -->
+		<div class="bottom-box">
+			<section>
+
+				<!-- div container with class "no-more-table" that activates when the media query is called -->
+				<div class="no-more-table">
+
+					<!-- subheading in the page -->
+					<h2 class="product-details">Product Details</h2>
+
+					<!-- table to display the products -->
+					<table>
+    					<thead>
+
+    						<!-- table header row -->
+      						<tr>
+
+      							<!-- column headers -->
+        						<th class="asterisk">Product ID</th>
+        						<th class="asterisk">Product Description</th>
+        						<th class="asterisk">Quantity</th>
+        						<th class="asterisk">Unit Price</th>
+        						<th class="asterisk">Line Total</th>
+      						</tr>
+    					</thead>
+    					<tbody>
+
+    						<!-- first row to enter product information -->
+      						<tr>
+
+      							<!-- input line for product 1 -->
+      							
+        						<td data-title="Product ID">
+        							<input type="text" id="product_id_1" name="product_id_1" onblur="productIDValidation()">
+        						<span id="errorID10" class="error-message error-border"></span></td>
+        						
+
+        						<td data-title="Product Description">
+        							<input type="text" id="product_name_1" name="product_name_1" maxlength="60" onblur="productDescriptionValidation()">
+        							<span id="errorID11" class="error-message error-border"></span></td>
+
+        						<td data-title="Quantity">
+        							<input type="number" id="quantity_1" name="quantity_1" max="20" onblur="productQuantityValidation()" oninput= "calculatelineTotal()"><span id="errorID12" class="error-message error-border"></span>
+        						</td>
+
+        						<td data-title="Unit Price">
+        							<input type="number" id="unit_price_1" name="unit_price_1" step="0.01" onblur="productPriceValidation()" oninput= "calculatelineTotal()">
+        							<span id="errorID13" class="error-message error-border"></span></td>
+        						
+        						<td data-title="Line Total">
+        							<input type="number" id="line_total_1" name="line_total_1" value="0" readonly onblur="calculateSubTotal()">
+        							<span id="errorID14" class="error-message error-border"></span>
+        						</td>        						
+      						</tr>
+      						<!-- end of code segment from
+      						https://www.youtube.com/watch?v=YGTNhLsF-_Q -->
+      						<tr>
+
+      							<!-- input line for product 2 -->
+        						<td data-title="Product ID"><input type="text" id="product_id_2" name="product_id_2"><span id="errorID15" class="error-message"></span>
+     							</td>
+
+        						<td data-title="Product Description"><input type="text" id="product_name_2" name="product_name_2"><span id="errorID16" class="error-message"></span></td>
+
+        						<td data-title="Quantity"><input type="number" id="quantity_2" name="quantity_2" onblur="product2QuantityValidation()" oninput="calculateline2Total()"><span id="errorID17" class="error-message error-border"></span></td>
+
+        						<td data-title="Unit Price"><input type="number" id="unit_price_2" name="unit_price_2" step="0.01" onblur="product2PriceValidation()" oninput="calculateline2Total()"><span id="errorID18" class="error-message error-border"></span></td>
+
+       							<td data-title="Line Total"><input type="number" id="line_total_2" name="line_total_2" step="0.01" value="0" readonly onblur="calculateSubTotal()" ><span id="errorID19" class="error-message"></span></td>
+      						</tr>
+      						<tr>
+
+      							<!-- input line for product 3 -->
+        						<td data-title="Product ID"><input type="text" id="product_id_3" name="product_id_3"><span id="errorID20" class="error-message"></span></td>
+
+        						<td data-title="Product Description"><input type="text" id="product_name_3" name="product_name_3"><span id="errorID21" class="error-message"></span></td>
+
+        						<td data-title="Quantity"><input type="number" id="quantity_3" name="quantity_3" onblur="product3QuantityValidation()" oninput="calculateline3Total()"><span id="errorID22" class="error-message error-border"></span></td>
+
+        						<td data-title="Unit Price"><input  type="number" id="unit_price_3" name="unit_price_3" step="0.01" onblur="product3PriceValidation()" oninput="calculateline3Total()"><span id="errorID23" class="error-message error-border"></span></td>
+
+        						<td data-title="Line Total"><input  type="number" id="line_total_3" name="line_total_3" step="0.01" value="0" readonly onblur="calculateSubTotal()"><span id="errorID24" class="error-message"></span></td>
+     			 				</tr>
+      						<tr>
+
+      							<!-- input line for product 4 -->
+        						<td data-title="Product ID"><input type="text" id="product_id_4" name="product_id_4"><span id="errorID25" class="error-message"></span></td>
+
+        						<td data-title="Product Description"><input  type="text" id="product_name_4" name="product_name_4"><span id="errorID26" class="error-message"></span></td>
+
+        						<td data-title="Quantity"><input type="number" id="quantity_4" name="quantity_3" onblur="product4QuantityValidation()" oninput="calculateline4Total()"><span id="errorID27" class="error-message error-border"></span></td>
+
+        						<td data-title="Unit Price"><input type="number" id="unit_price_4" name="unit_price_4" step="0.01" onblur="product4PriceValidation()" oninput="calculateline4Total()"><span id="errorID28" class="error-message error-border"></span></td>
+
+        						<td data-title="Line Total"><input type="number" id="line_total_4" name="line_total_4" step="0.01" value="0" readonly onblur="calculateSubTotal()"><span id="errorID29" class="error-message"></span></td>
+      						</tr>
+      						<tr>
+
+      							<!-- input line for product 5 -->
+        						<td data-title="Product ID"><input type="text" id="product_id_5" name="product_id_5"><span id="errorID30" class="error-message"></span></td>
+
+        						<td data-title="Product Description"><input  type="text" id="product_name_5" name="product_name_5"><span id="errorID31" class="error-message"></span></td>
+
+        						<td data-title="Quantity"><input type="number" id="quantity_5" name="quantity_4" onblur="product5QuantityValidation()" oninput="calculateline5Total()"><span id="errorID32" class="error-message error-border"></span></td>
+
+        						<td data-title="Unit Price"><input type="number" id="unit_price_5" name="unit_price_5" step="0.01" onblur="product5PriceValidation()" oninput="calculateline5Total()"><span id="errorID33" class="error-message error-border"></span></td>
+
+        						<td data-title="Line Total"><input type="number" id="line_total_5" name="line_total_5" step="0.01" value="0" readonly onblur="calculateSubTotal()"><span id="errorID34" class="error-message"></span></td>
+      						</tr>
+  						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<!-- div container with id "no-more-table" to activate when the media query is called -->
+			<div class="no-more-table">
+
+				<!-- table with class "responsive table" will activate when media query is called -->
+				<table class="responsive-table">
+					<thead>
+     	 				<tr id="headrow">
+        					<th>Subtotal</th>
+        					<th>GST</th>
+        					<th>Total</th>
+        					<th>Deposit Paid</th>
+        					<th>Total Due</th>
+      					</tr>
+    			</thead>
+    				<tbody>
+
+    					<!-- row to enter price information -->
+      					<tr>
+
+      						<!-- input line for price information -->
+        					<td data-title="Subtotal"><input type="text" id="subtotal" name="subtotal" readonly onkeydown="calculateGST()"></td>
+        					<td data-title="GST"><input type="text" id="GST" name="GST" readonly onblur="calculateTotal()"></td>
+        					<td data-title="Total"><input type="number" id="total" name="total" readonly></td>
+        					<td data-title="Deposit Paid"><input type="number" id="depositpaid" name="depositpaid" value="0" onblur="calculateTotalDue()"></td>
+        					<td data-title="Total Due"><input type="number" id="totaldue" name="totaldue"  readonly></td>
+      					</tr>
+					</tbody>
+				</table>
+			</div>
+			<br>
+			<fieldset>
+				<!-- label and input details for the installation date -->
+				<label for="instdate" style="font-weight: bolder">Installation Date</label>
+				<input type="date" id="instdate" name="date" value="2023-01-01" min="2023-03-20" max="2023-12-31"><br><br><br><br>
+
+				<!-- label and input details for the installation notes -->
+				<label for="instnotes">Installation notes</label>	
+				<textarea id="instnotes" name="instnotes" rows="5"></textarea>
+			</fieldset>
+		</div>
+	</div>
+	<br>
+
+	<!-- div container for the submit input -->
+	<div class="submit">
+
+		<!-- label and input for submit -->
+		<label class="submit" for="submit">Submit Quote</label><br>
+		<input class="submit" id="submit" type="submit" name="Submit" onsubmit=" return submitError()">
+		<div>
+			<strong><span id="errorID50" class="error-message" style="font-size: 1.25em; margin-bottom: 80px;"></span></strong>
+			<p style="font-size: 2em; color: green;"> Thank you for your business!</p>
+		</div>
+	</div>
+	</form>
+
+	<!-- p element being used with in line styling --> 
+	<p style="font-size: 0.85em; text-align: center; font-weight: bolder;"><strong> We have been providing high quality awnings and blinds to customers all over the Sydney region
+	for the past 30 years.<br> Totally Wonder Awnings. &#8482; 2023.</strong></p><br>	
+
+</body>
+
+</html>
