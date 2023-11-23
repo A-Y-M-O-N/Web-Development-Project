@@ -1,9 +1,5 @@
-// Assignment 2A: Practical exercise set 1 
-// Student name: Aymon Husari 
-// Student number: 16801325  
-// Assignment due date: March 20, 2023 
 
-// this is a javascript file linked to exercise1.html (quote form)
+// this is a javascript file linked to quote.html
 
 // this function is to validate the staff number
 function staffNumberValidation() {
